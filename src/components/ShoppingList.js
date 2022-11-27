@@ -14,7 +14,6 @@ function ShoppingList({ items }) {
 
   return (
     <div className="ShoppingList">
-      <ItemForm />
       <Filter
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
