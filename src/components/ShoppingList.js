@@ -11,16 +11,9 @@ function ShoppingList({ items }) {
     setSelectedCategory(event.target.value);
   }
 
-  const itemsToDisplay = items.filter((item) => {
-    if (search.toLowerCase() === item.name.toLowerCase()) {
-      return item.name
-    }
-    else {
-      if (item.category === selectedCategory) {
-        return selectedCategory;
-      }
-    }
-  });
+  const itemsToDisplay = items
+    .filter((item) => item.category === selectedCategory || selectedCategory === "All")
+    .filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
 
 
   return (
