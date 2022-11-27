@@ -7,10 +7,6 @@ function ShoppingList({ items }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("")
 
-  function handleCategoryChange(event) {
-    setSelectedCategory(event.target.value);
-  }
-
   const itemsToDisplay = items
     .filter((item) => item.category === selectedCategory || selectedCategory === "All")
     .filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
@@ -20,7 +16,8 @@ function ShoppingList({ items }) {
     <div className="ShoppingList">
       <ItemForm />
       <Filter
-        onCategoryChange={handleCategoryChange}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
         search={search}
         onSearchChange={setSearch}
       />
